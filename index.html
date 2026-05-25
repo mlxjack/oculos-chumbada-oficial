@@ -210,6 +210,7 @@
             font-size: 0.85em;
             color: var(--text-light);
             margin-bottom: 8px;
+            margin-top: auto;
             line-height: 1.5;
         }
 
@@ -220,17 +221,17 @@
 
         /* Container do SKU e Botão Copiar */
         .sku-container {
-            margin-top: auto;
-            padding-top: 15px;
-            border-top: 1px dashed #e0e0e0;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .sku {
-            font-size: 0.75em;
-            color: #999;
+            font-size: 0.95em;
+            color: var(--text-dark);
             font-family: monospace;
             text-transform: uppercase;
         }
@@ -366,7 +367,7 @@
             btnElement.innerHTML = `
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
-                </svg> Copiado!
+                </svg> SKU Copiado!
             `;
             btnElement.classList.add('copied');
             
@@ -405,9 +406,6 @@
                     <img src="${prod.img}" alt="${prod.title} ${prod.model}" loading="lazy">
                 </div>
                 <div class="card-content">
-                    <div class="title">${prod.title} <br><small style="color:#ff4d00; font-size: 0.75em;">${prod.model}</small></div>
-                    <div class="price">R$ ${prod.price}</div>
-                    <div class="info"><strong>Detalhes:</strong> ${prod.color}</div>
                     <div class="sku-container">
                         <div class="sku">SKU: <strong>${prod.sku}</strong></div>
                         <button class="copy-btn" onclick="copySKU('${prod.sku}', this)">
@@ -415,9 +413,12 @@
                                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                             </svg>
-                            Copiar
+                            Copiar SKU
                         </button>
                     </div>
+                    <div class="title">${prod.title} <br><small style="color:#ff4d00; font-size: 0.75em;">${prod.model}</small></div>
+                    <div class="price">R$ ${prod.price}</div>
+                    <div class="info"><strong>Detalhes:</strong> ${prod.color}</div>
                 </div>
             `;
             grid.appendChild(card);
